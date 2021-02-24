@@ -13050,7 +13050,9 @@ in
   uefi-firmware-parser = callPackage ../development/tools/analysis/uefi-firmware-parser { };
 
   uhd3_5 = callPackage ../applications/radio/uhd/3.5.nix { };
-  uhd = callPackage ../applications/radio/uhd { };
+  uhd = callPackage ../applications/radio/uhd {
+    boost = boost17x;
+  };
 
   uisp = callPackage ../development/tools/misc/uisp { };
 
@@ -22202,6 +22204,7 @@ in
   gnuradio-unwrapped = callPackage ../applications/radio/gnuradio {
     inherit (darwin.apple_sdk.frameworks) CoreAudio;
     python = python3;
+    boost = boost17x;
   };
   # A build without gui components and other utilites not needed for end user
   # libraries
