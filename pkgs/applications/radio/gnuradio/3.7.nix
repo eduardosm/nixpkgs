@@ -66,10 +66,12 @@ let
       native = [ doxygen ];
       cmakeEnableFlag = "DOXYGEN";
     };
-    sphinx = {
-      pythonNative = with python.pkgs; [ sphinx ];
-      cmakeEnableFlag = "SPHINX";
-    };
+    # Disabled due to python2.pkgs.requests broken:
+    # https://github.com/NixOS/nixpkgs/pull/113515
+    # sphinx = {
+      # pythonNative = with python.pkgs; [ sphinx ];
+      # cmakeEnableFlag = "SPHINX";
+    # };
     python-support = {
       pythonRuntime = [ python.pkgs.six ];
       native = [
